@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskMaster ToDo App</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">TaskMaster</p>
+          <h1>Organize your day with a clean task list.</h1>
+          <p class="subtitle">
+            Add, edit, complete, and remove tasks with browser persistence using localStorage.
+          </p>
+        </div>
+      </header>
+
+      <section class="task-panel">
+        <form id="taskForm" class="task-form" aria-label="Add new task">
+          <label class="field-group">
+            <span>New task</span>
+            <input
+              id="taskInput"
+              type="text"
+              placeholder="What do you want to do?"
+              autocomplete="off"
+              required
+            />
+          </label>
+          <button type="submit" class="btn btn-primary">Add task</button>
+        </form>
+
+        <div id="errorMessage" class="message message-error" aria-live="polite"></div>
+
+        <div class="task-toolbar">
+          <div class="filters" role="tablist" aria-label="Filter tasks">
+            <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+              All
+            </button>
+            <button type="button" class="filter-btn" data-filter="active" role="tab" aria-selected="false">
+              Active
+            </button>
+            <button type="button" class="filter-btn" data-filter="completed" role="tab" aria-selected="false">
+              Completed
+            </button>
+          </div>
+
+          <p id="taskCount" class="task-count">0 tasks left</p>
+        </div>
+
+        <ul id="taskList" class="task-list" aria-live="polite" aria-label="Task list"></ul>
+      </section>
+    </div>
+
+    <script src="js/script.js" defer></script>
+  </body>
+</html>

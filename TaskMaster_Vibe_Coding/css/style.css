@@ -1,0 +1,373 @@
+:root {
+  --bg: #eef6ff;
+  --surface: #ffffff;
+  --surface-strong: #f8fbff;
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --border: #d1d5db;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --shadow: rgba(15, 23, 42, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, rgba(37, 99, 235, 0.12), transparent 30%), var(--bg);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 24px 36px;
+}
+
+.hero {
+  padding: 32px 28px;
+  margin-bottom: 24px;
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: 0 24px 60px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 2.9vw, 3.4rem);
+  line-height: 1.05;
+}
+
+.subtitle {
+  margin: 18px 0 0;
+  max-width: 720px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.task-panel {
+  padding: 26px;
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--border);
+}
+
+.task-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: flex-end;
+}
+
+.field-group {
+  display: grid;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.field-group span {
+  font-weight: 600;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+  color: var(--text);
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 22px;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover,
+.icon-btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible,
+.icon-btn:focus-visible,
+.filter-btn:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.25);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.btn-secondary {
+  background: #eef2ff;
+  color: var(--text);
+  border-color: #dbeafe;
+}
+
+.btn-link {
+  background: transparent;
+  color: var(--primary);
+  border-color: transparent;
+}
+
+.task-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 12px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.filter-btn:hover {
+  border-color: var(--primary);
+}
+
+.task-count {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.task-list {
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+
+.task-item {
+  border-radius: 24px;
+  padding: 18px 20px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
+  display: grid;
+  gap: 14px;
+}
+
+.view-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.task-toggle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.task-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.task-checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  display: grid;
+  place-items: center;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.task-checkbox::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg) scale(0);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.task-toggle input:checked + .task-checkbox {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.task-toggle input:checked + .task-checkbox::after {
+  transform: rotate(-45deg) scale(1);
+  border-color: #ffffff;
+}
+
+.task-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.task-item.completed .task-text {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  padding: 10px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.edit-panel {
+  display: none;
+  gap: 12px;
+}
+
+.task-item.editing .view-panel {
+  display: none;
+}
+
+.task-item.editing .edit-panel {
+  display: grid;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+}
+
+.edit-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.empty-state {
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: 20px;
+}
+
+.message {
+  min-height: 24px;
+  margin-top: 14px;
+  font-size: 0.95rem;
+}
+
+.message-error {
+  color: var(--danger);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.message-error.visible {
+  opacity: 1;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 20px 18px 30px;
+  }
+
+  .hero {
+    padding: 26px 20px;
+  }
+
+  .task-form {
+    grid-template-columns: 1fr;
+  }
+
+  .task-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .task-actions {
+    justify-content: flex-end;
+  }
+}
